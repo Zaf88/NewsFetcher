@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newsfetcher.R
+import com.example.newsfetcher.feature.mainscreen.domain.ArticleModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
@@ -22,7 +23,6 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
     }
 
     private fun render(viewState: ViewState) {
-        recyclerView.setData(viewState.articles)
+        adapter.setData(viewState.articles)
     }
-
 }
