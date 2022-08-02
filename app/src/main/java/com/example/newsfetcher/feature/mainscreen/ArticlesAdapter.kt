@@ -34,7 +34,7 @@ class ArticlesAdapter : RecyclerView.Adapter<ArticlesAdapter.ViewHolder>() {
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
 
-        viewHolder.textView.text = articlesData[position].tittle
+        viewHolder.textView.text = articlesData[position].title
     }
 
     // Return the size of your dataset (invoked by the layout manager)

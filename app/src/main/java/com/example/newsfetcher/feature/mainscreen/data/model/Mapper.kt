@@ -4,7 +4,7 @@ import com.example.newsfetcher.feature.mainscreen.domain.ArticleModel
 
 fun ArticleRemoteModel.toDomain() = ArticleModel(
     author = author ?:"",
-    tittle = tittle ?:"",
+    title = title ?:"",
     description = description ?:"",
     url = url
 )

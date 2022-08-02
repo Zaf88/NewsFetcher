@@ -6,7 +6,7 @@ data class ArticleRemoteModel(
     @SerializedName("author")
     val author: String?,
     @SerializedName("tittle")
-    val tittle: String?,
+    val title: String?,
     @SerializedName("description")
     val description: String?,
     @SerializedName("url")
