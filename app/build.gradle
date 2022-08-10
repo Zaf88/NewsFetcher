@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -35,8 +36,10 @@ dependencies {
     def retrofit_version = "2.9.0"
     def coroutines_version = "1.6.4"
     def gson_version = "2.9.0"
-    def koin_version= "3.2.0"
+    def koin_version = "3.2.0"
     def logging_interceptor = "4.10.0"
+    def room_version = "2.4.3"
+
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'
@@ -61,5 +64,8 @@ dependencies {
     // Koin main features for Android
     implementation "io.insert-koin:koin-android:$koin_version"
     // LoggingInterceptor
-    implementation"com.squareup.okhttp3:logging-interceptor:$logging_interceptor"
+    implementation "com.squareup.okhttp3:logging-interceptor:$logging_interceptor"
+    //    room
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
 }
