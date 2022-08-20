@@ -26,6 +26,6 @@ val mainScreenModule = module {
         ArticlesInteractor(repository = get())
     }
     viewModel {
-        MainScreenViewModel(interactor = get())
+        MainScreenViewModel(interactor = get(), bookmarksInteractor = get())
     }
 }

@@ -6,6 +6,9 @@ class ArticlesRepositoryImpl(private val source: ArticlesRemoteSource):ArticlesR
     override suspend fun getArticles():List<ArticleModel> {
         return source.getArticles().articleList.map {
             it.toDomain()
-        }
+        }. sortedByDescending {it.publishedAt}
+
+
+
     }
 }
