@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class ArticleRemoteModel (
     @SerializedName("author")
     val author: String?,
-    @SerializedName("tittle")
+    @SerializedName("title")
     val title: String?,
     @SerializedName("description")
     val description: String?,
