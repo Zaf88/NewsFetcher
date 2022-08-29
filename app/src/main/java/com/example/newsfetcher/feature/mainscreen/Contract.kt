@@ -7,7 +7,9 @@ import com.example.newsfetcher.feature.mainscreen.domain.ArticleModel
 data class ViewState(
     val isSearchEnabled: Boolean,
     val articlesShown:List<ArticleModel>,
-    val articleList: List<ArticleModel>
+    val articleList: List<ArticleModel>,
+    val isError: Boolean,
+    val errorText: String
 )
 sealed class UiEvent:Event {
     data class OnArticleClicked(val index: Int):UiEvent()
@@ -17,4 +19,5 @@ sealed class UiEvent:Event {
 sealed class DataEvent: Event {
     object LoadArticles:DataEvent()
     data class OnLoadArticlesSucceed(val articles: List<ArticleModel>):DataEvent()
+    data class OnLoadArticlesError( val errorText: String): DataEvent()
 }

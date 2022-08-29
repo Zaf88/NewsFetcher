@@ -57,5 +57,11 @@ etSearch.addTextChangedListener(object: TextWatcher{
         tvTitle.isVisible =!viewState.isSearchEnabled
         etSearch.isVisible =viewState.isSearchEnabled
         adapter.setData(viewState.articlesShown)
+
+        if (viewState.isError)  {
+
+            tvTitle.text = viewState.errorText
+        } else {
+            viewState.isSearchEnabled
     }
-}
+}}
