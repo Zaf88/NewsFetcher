@@ -8,8 +8,7 @@ data class ViewState(
     val isSearchEnabled: Boolean,
     val articlesShown:List<ArticleModel>,
     val articleList: List<ArticleModel>,
-    val isError: Boolean,
-    val errorText: String
+
 )
 sealed class UiEvent:Event {
     data class OnArticleClicked(val index: Int):UiEvent()

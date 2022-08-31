@@ -22,8 +22,7 @@ class MainScreenViewModel(
         articleList = emptyList(),
         articlesShown = emptyList(),
         isSearchEnabled = false,
-        isError = true,
-        errorText = "Failed to load articles, please try again"
+
     )
 
 
@@ -33,8 +32,8 @@ class MainScreenViewModel(
                 viewModelScope.launch {
                     interactor.getArticles().fold(
                         onError = {
-                            processDataEvent(DataEvent.OnLoadArticlesError(errorText = String()))
-                        },
+                            Log.e("ERROR", it.localizedMessage)
+                            },
                         onSuccess = {
                             processDataEvent(DataEvent.OnLoadArticlesSucceed(it))
                         }
@@ -72,12 +71,8 @@ class MainScreenViewModel(
                     )
                 })
             }
-            is DataEvent.OnLoadArticlesError -> {
-                return previousState.copy(errorText = event.errorText, isError = true, isSearchEnabled = false)
-            }
+
             else -> return null
         }
-
-
     }
 }
