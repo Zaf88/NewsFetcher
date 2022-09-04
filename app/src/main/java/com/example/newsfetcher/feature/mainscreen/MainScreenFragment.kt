@@ -22,6 +22,7 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
     private val tvTitle: TextView by lazy { requireActivity().findViewById(R.id.tvTitle) }
     private val etSearch: EditText by lazy { requireActivity().findViewById(R.id.etSearch) }
     private val adapter: ArticlesAdapter by lazy {
+
         ArticlesAdapter { index ->
             viewModel.processUiEvent(UiEvent.OnArticleClicked(index))
         }

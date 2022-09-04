@@ -10,7 +10,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
     private val bottomNavigationView: BottomNavigationView by lazy { findViewById(R.id.bnvBar) }
-    private val collapsingToolbar: CollapsingToolbarLayout by lazy { findViewById(R.id.collapsingToolbar) }
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

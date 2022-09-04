@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.WeatherFetcher" parent="Theme.MaterialComponents.DayNight.NoActionBar"/>
+    <style name="BaseTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
     <style name="AppTheme" parent="BaseTheme.Light">
         <item name="android:statusBarColor">@color/colorPrimary</item>
     </style>
