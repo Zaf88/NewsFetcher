@@ -5,10 +5,14 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.newsfetcher.feature.mainscreen.MainScreenFragment
 import com.example.newsfetcher.feature.mainscreen.bookmarks.ui.BookmarksFragment
+import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
     private val bottomNavigationView: BottomNavigationView by lazy { findViewById(R.id.bnvBar) }
+    private val collapsingToolbar: CollapsingToolbarLayout by lazy { findViewById(R.id.collapsingToolbar) }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -25,8 +29,9 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-    bottomNavigationView.selectedItemId =R.id.itemMain
+        bottomNavigationView.selectedItemId = R.id.itemMain
     }
+
     private fun selectTab(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(R.id.container, fragment)
             .commit()

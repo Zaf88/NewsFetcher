@@ -8,12 +8,12 @@
         android:id="@+id/layoutToolbar"
         android:layout_width="0dp"
         android:layout_height="56dp"
-        android:background="@color/white"
+        android:background="@color/design_default_color_primary"
         android:elevation="5dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
     <TextView
         android:id="@+id/tvTitle"
@@ -35,7 +35,7 @@
         app:layout_constraintBottom_toBottomOf="@id/ivSearch"
         app:layout_constraintEnd_toStartOf="@id/ivSearch"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/ivSearch"/> >
+        app:layout_constraintTop_toTopOf="@id/ivSearch"/>
 
 
     <ImageView
