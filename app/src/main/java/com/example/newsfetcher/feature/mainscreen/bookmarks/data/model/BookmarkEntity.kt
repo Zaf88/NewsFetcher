@@ -7,6 +7,7 @@ import com.example.newsfetcher.feature.mainscreen.bookmarks.di.BOOKMARKS_TABLE
 
 @Entity(tableName = BOOKMARKS_TABLE)
 data class BookmarkEntity(
+
     @PrimaryKey
     @ColumnInfo(name = "url")
     val url: String,
@@ -19,5 +20,7 @@ data class BookmarkEntity(
     @ColumnInfo(name = "urlToImage")
     val urlToImage: String,
     @ColumnInfo(name = "publishedAt")
-    val publishedAt: String
+    val publishedAt: String,
+    @ColumnInfo(name= "content")
+    val content :String
 )

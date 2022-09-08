@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.newsfetcher.di.networkModule
 import com.example.newsfetcher.di.databaseModule
+import com.example.newsfetcher.feature.mainscreen.articleInfoFragment.di.articleInfoModule
 import com.example.newsfetcher.feature.mainscreen.bookmarks.di.bookmarksModule
 import com.example.newsfetcher.feature.mainscreen.di.mainScreenModule
 import org.koin.android.ext.koin.androidContext
@@ -18,7 +19,7 @@ class App: Application() {
         startKoin {
             androidLogger()
             androidContext(this@App)
-            modules(networkModule,mainScreenModule, bookmarksModule, databaseModule)
+            modules(networkModule,mainScreenModule, bookmarksModule, databaseModule, articleInfoModule)
 
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
         }}}

@@ -22,8 +22,10 @@ class MainScreenViewModel(
         articleList = emptyList(),
         articlesShown = emptyList(),
         isSearchEnabled = false,
+        editText = "",
+        favoriteArticlesChoice = true,
 
-    )
+        )
 
 
     override fun reduce(event: Event, previousState: ViewState): ViewState? {
@@ -33,7 +35,7 @@ class MainScreenViewModel(
                     interactor.getArticles().fold(
                         onError = {
                             Log.e("ERROR", it.localizedMessage)
-                            },
+                        },
                         onSuccess = {
                             processDataEvent(DataEvent.OnLoadArticlesSucceed(it))
                         }
@@ -53,13 +55,16 @@ class MainScreenViewModel(
 
 
             is UiEvent.OnArticleClicked -> {
+                previousState.articleList[event.index].favoriteArticlesChoice = true
                 viewModelScope.launch {
                     bookmarksInteractor.create(previousState.articlesShown[event.index])
                 }
                 return null
             }
             is UiEvent.OnSearchButtonClicked -> {
-                return previousState.copy(articlesShown = if (previousState.isSearchEnabled) previousState.articleList else previousState.articlesShown,
+                return previousState.copy(
+                    articlesShown = if (previousState.isSearchEnabled)
+                        previousState.articleList else previousState.articlesShown,
                     isSearchEnabled = !previousState.isSearchEnabled
                 )
             }
@@ -69,10 +74,12 @@ class MainScreenViewModel(
                     it.title.contains(
                         event.text
                     )
-                })
+                }, isSearchEnabled = previousState.isSearchEnabled)
             }
+
 
             else -> return null
         }
+        return null
     }
 }

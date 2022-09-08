@@ -17,6 +17,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        supportFragmentManager.beginTransaction().replace(R.id.container, MainScreenFragment())
+            .commit()
+
         bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.itemMain -> {
@@ -36,4 +39,8 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().replace(R.id.container, fragment)
             .commit()
     }
-}
+
+    private fun removeTab (fragment: Fragment) {
+        supportFragmentManager.beginTransaction().remove(fragment).commit()
+
+}}

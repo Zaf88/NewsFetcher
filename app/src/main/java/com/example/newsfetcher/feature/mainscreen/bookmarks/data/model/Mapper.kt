@@ -8,13 +8,27 @@ fun BookmarkEntity.toDomain()=ArticleModel(
     url = url,
     author = author,
     urlToImage = urlToImage,
-    publishedAt = publishedAt
+    publishedAt = publishedAt,
+    content = content
 )
-fun ArticleModel.toEntity()=BookmarkEntity(
-    title = title,
-    description = description,
-    url = url,
-    author = author,
-    urlToImage = urlToImage,
-    publishedAt = publishedAt
-)
+fun ArticleModel.toEntity()= description?.let {
+    if (author != null) {
+        if (urlToImage != null) {
+            if (publishedAt != null) {
+                if (content != null) {
+                    if (url != null) {
+                        BookmarkEntity(
+                            title = title,
+                            description = it,
+                            url = url,
+                            author = author,
+                            urlToImage = urlToImage,
+                            publishedAt = publishedAt,
+                            content = content
+                        )
+                    }
+                }
+            }
+        }
+    }
+}

@@ -15,4 +15,6 @@ data class ArticleRemoteModel (
     val urlToImage:String?,
     @SerializedName("publishedAt")
     val publishedAt:String,
+    @SerializedName("content")
+    val content :String?
 )
