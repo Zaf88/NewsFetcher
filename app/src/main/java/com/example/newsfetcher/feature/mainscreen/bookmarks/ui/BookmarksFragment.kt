@@ -6,22 +6,20 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newsfetcher.R
 import com.example.newsfetcher.feature.mainscreen.ArticleAdapter
+
 import org.koin.androidx.viewmodel.ext.android.viewModel
-
-
 
 class BookmarksFragment:Fragment(R.layout.fragment_bookmarks) {
 
     private val viewModel: BookmarksScreenViewModel by viewModel()
-    private val recyclerView: RecyclerView by lazy {requireActivity().findViewById (R.id.rvBookmarkedArticles)}
+    private val recyclerView: RecyclerView by lazy { requireActivity().findViewById(R.id.rvBookmarkedArticles) }
     private val adapter: ArticleAdapter by lazy {
-        ArticleAdapter { index ->
+
+        ArticleAdapter  { index ->
             viewModel.processUiEvent(UiEvent.OnArticleClicked(index))
         }
+
     }
-
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -34,7 +32,7 @@ class BookmarksFragment:Fragment(R.layout.fragment_bookmarks) {
 
     private fun render (viewState: ViewState) {
 
-        adapter.setData(viewState.bookmarksArticles)
+        adapter.setData(viewState.bookmarksArticle)
 
     }
 }

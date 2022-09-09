@@ -14,7 +14,7 @@ class BookmarksScreenViewModel(private val interactor: BookmarksInteractor) :
         processDataEvent(DataEvent.LoadBookmarks)
     }
 
-    override fun InitialViewState(): ViewState = ViewState(bookmarksArticles = emptyList())
+    override fun InitialViewState(): ViewState = ViewState(bookmarksArticle = emptyList())
 
     override fun reduce(event: Event, previousState: ViewState): ViewState? {
         when (event) {
@@ -32,14 +32,14 @@ class BookmarksScreenViewModel(private val interactor: BookmarksInteractor) :
 
             is DataEvent.OnSuccessBookmarksLoaded -> {
                 Log.d("Room", "articleBookmark=${event.bookmarksArticle}")
-                return previousState.copy(bookmarksArticles = event.bookmarksArticle)
+                return previousState.copy(bookmarksArticle = event.bookmarksArticle)
             }
 
 
             //при нажатии на кнопку удаляется статья в базе данных
             is UiEvent.OnArticleClicked -> {
                 viewModelScope.launch {
-                    interactor.delete(previousState.bookmarksArticles[event.index])
+                    interactor.delete(previousState.bookmarksArticle[event.index])
 
                 }
                 return null

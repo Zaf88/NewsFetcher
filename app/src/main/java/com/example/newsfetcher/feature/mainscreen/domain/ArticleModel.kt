@@ -4,13 +4,13 @@ package com.example.newsfetcher.feature.mainscreen.domain
 
 data class ArticleModel(
 
-    val author: String?,
+    val author: String,
     val title: String,
-    val description: String?,
-    val url: String?,
-    val urlToImage:String?,
-    val publishedAt:String?,
-    val content: String?,
+    val description: String,
+    val url: String,
+    val urlToImage:String,
+    val publishedAt:String,
+    val content: String,
     var favoriteArticlesChoice:Boolean=false
 
 )

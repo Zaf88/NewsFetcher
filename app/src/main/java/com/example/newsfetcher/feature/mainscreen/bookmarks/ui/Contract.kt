@@ -5,7 +5,7 @@ import com.example.newsfetcher.Base.Event
 import com.example.newsfetcher.feature.mainscreen.domain.ArticleModel
 
 data class ViewState(
-    val bookmarksArticles: List<ArticleModel>)
+    val bookmarksArticle: List<ArticleModel>)
 
 
 sealed class UiEvent:Event{

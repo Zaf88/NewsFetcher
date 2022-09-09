@@ -6,7 +6,7 @@ import com.example.newsfetcher.feature.mainscreen.domain.ArticleModel
 class BookmarksRepositoryImpl(private val bookmarksLocalSource: BookmarksLocalSource):BookmarksRepository {
     override suspend fun create(model: ArticleModel) {
 
-       bookmarksLocalSource.create(BookmarkEntity())
+       bookmarksLocalSource.create(model.toEntity())
     }
 
     override suspend fun read(): List<ArticleModel> {
@@ -14,10 +14,10 @@ class BookmarksRepositoryImpl(private val bookmarksLocalSource: BookmarksLocalSo
     }
 
     override suspend fun update(model: ArticleModel) {
-        bookmarksLocalSource.update(BookmarkEntity())
+        bookmarksLocalSource.update(model.toEntity())
     }
 
     override suspend fun delete(model: ArticleModel) {
-        bookmarksLocalSource.delete(BookmarkEntity())
+        bookmarksLocalSource.delete(model.toEntity())
     }
 }

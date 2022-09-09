@@ -77,7 +77,6 @@ class MainScreenViewModel(
                 }, isSearchEnabled = previousState.isSearchEnabled)
             }
 
-
             else -> return null
         }
         return null
