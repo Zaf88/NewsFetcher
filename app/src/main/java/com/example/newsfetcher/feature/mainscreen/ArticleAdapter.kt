@@ -11,8 +11,9 @@ import com.example.newsfetcher.feature.mainscreen.domain.ArticleModel
 
 class ArticleAdapter(
   //  val OnItemClicked:(Int) ->Unit):
-    private val onAddToBookmarksClicked: (Int) -> Unit
-):
+    private val onAddToBookmarksClicked: (Int) -> Unit,
+    private val onArticleClicked: (ArticleModel) -> Unit,
+    ):
     RecyclerView.Adapter<ArticleAdapter.ViewHolder>() {
 
 
@@ -47,8 +48,9 @@ class ArticleAdapter(
             //   OnItemClicked(position)
         }
 
-//        viewHolder.tvTitle.setOnClickListener {
-//            onArticleClicked.invoke(articlesData[position])
+        viewHolder.tvTitle.setOnClickListener {
+            onArticleClicked.invoke(articlesData[position])
+        }
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element

@@ -24,9 +24,10 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
     private val etSearch: EditText by lazy { requireActivity().findViewById(R.id.etSearch) }
     private val adapter: ArticleAdapter by lazy {
 
-        ArticleAdapter { index ->
-            viewModel.processUiEvent(UiEvent.OnArticleClicked(index))
-        }
+        ArticleAdapter(
+            { index -> viewModel.processUiEvent(UiEvent.OnArticleClicked(index)) },
+         { currentArticle -> openArticle(currentArticle as ArticleModel) }
+        )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
