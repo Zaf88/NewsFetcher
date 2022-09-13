@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.newsfetcher.R
 import com.example.newsfetcher.feature.mainscreen.domain.ArticleModel
 
@@ -27,6 +28,7 @@ class ArticleAdapter(
         val tvTitle: TextView = view.findViewById(R.id.tvTitle)
         val tvDate: TextView = view.findViewById(R.id.tvDate)
         val ivFavorite: ImageView = view.findViewById(R.id.ivFavorite)
+        val urlToImage:ImageView = view.findViewById(R.id.ivUrlToImage)
 
     }
 
@@ -41,6 +43,7 @@ class ArticleAdapter(
 
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
+
 
         viewHolder.itemView.setOnClickListener {
             onAddToBookmarksClicked.invoke(position)
@@ -57,6 +60,8 @@ class ArticleAdapter(
 
         viewHolder.tvTitle.text = articlesData[position].title
         viewHolder.tvDate.text = articlesData[position].publishedAt
+        Glide.with(viewHolder.itemView).load(articlesData[position].urlToImage).into(viewHolder.urlToImage)
+
 
         if (articlesData[position].favoriteArticlesChoice)
             viewHolder.ivFavorite.setBackgroundResource(R.drawable.ic_baseline_favorite_24)

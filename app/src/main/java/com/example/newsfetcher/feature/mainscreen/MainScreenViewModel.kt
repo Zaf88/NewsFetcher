@@ -56,6 +56,7 @@ class MainScreenViewModel(
 
             is UiEvent.OnArticleClicked -> {
                 previousState.articleList[event.index].favoriteArticlesChoice = true
+
                 viewModelScope.launch {
                     bookmarksInteractor.create(previousState.articlesShown[event.index])
                 }

@@ -30,7 +30,7 @@
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/newInfoToolbar"
-                scrollFlags="scroll|enterAlwas"
+                scrollFlags="scroll|enterAlways"
                 android:layout_width="wrap_content"
                 android:layout_height="?actionBarSize"
                 android:minHeight="14dp"
